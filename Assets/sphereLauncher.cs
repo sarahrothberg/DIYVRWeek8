@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class sphereLauncher : MonoBehaviour {
-
-	public GameObject launchable; 
+	public Rigidbody launchable; 
 	float launchForce;
 	private Transform playerPos; 
 	// Use this for initialization
@@ -18,7 +17,9 @@ public class sphereLauncher : MonoBehaviour {
 		
 		if (Input.GetMouseButtonDown (0)) {
 			Rigidbody launch = Instantiate(launchable, playerPos.position, playerPos.rotation) as Rigidbody;
-			//launch.AddForce (playerPos.forward * launchForce);
+			launch.AddForce (playerPos.forward * launchForce);
 		}
 	}
+
+
 }
