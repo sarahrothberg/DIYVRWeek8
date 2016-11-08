@@ -10,10 +10,18 @@ public class playSoundOnCollision : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision){
 		myAudioSource.Play (); 
-		//Debug.Log(collision.relativeVelocity);
-		//Debug.Log(collision.relativeVelocity.magnitude);
-		//Debug.Log(collision.impulse.magnitude);
-		//AudioSource.volume = collision.relativeVelocity.magnitude / 3;
+
+// 		some examples of other physics info you can get form the collision:
+//		Debug.Log(collision.relativeVelocity);
+//		Debug.Log(collision.relativeVelocity.magnitude);
+//		Debug.Log(collision.impulse.magnitude);
+
+//		base the volumeof the AudioClip playing on the magnitude of relative velocity: 
+		myAudioSource.volume = collision.relativeVelocity.magnitude / 3;
+
+//		base the pitch of AudioClip playing on the magnitude of relative velocity: 
+		myAudioSource.pitch = collision.relativeVelocity.magnitude / 3;
+
 
 	}
 }
